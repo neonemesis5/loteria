@@ -5,23 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Audaces</title>
-    <!-- <link rel="stylesheet" href="style2.css"> -->
     <style>
-        /* styles.css */
+        /* Estilos generales */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #000;
             color: white;
             overflow-y: scroll;
+            position: relative;
+        }
+
+        /* Fondo del logo */
+        body::before {
+            content: "";
+            background-image: url('logo.jpg'); /* Ruta de tu logo */
+            background-size: contain; /* Ajusta el logo al contenedor */
+            background-repeat: no-repeat; /* Evita que se repita */
+            background-position: center; /* Centra el logo */
+            opacity: 0.5; /* Ajusta la opacidad del logo */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Coloca el fondo detrás del contenido */
         }
 
         header {
             position: fixed;
             width: 100%;
-            background: black;
+            background: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -30,7 +45,7 @@
         }
 
         .logo img {
-            height: 100px;
+            height: 300px;
         }
 
         nav ul {
@@ -62,10 +77,12 @@
         .section {
             padding: 100px 20px;
             min-height: 100vh;
+            position: relative;
+            z-index: 1; /* Asegura que el contenido esté sobre el fondo */
         }
 
         .hero {
-            background: #333;
+            background: rgba(51, 51, 51, 0.8); /* Fondo semitransparente */
             padding: 50px 20px;
         }
 
@@ -86,7 +103,7 @@
         }
 
         .item {
-            background: #222;
+            background: rgba(34, 34, 34, 0.8); /* Fondo semitransparente */
             padding: 15px;
             border-radius: 10px;
         }
@@ -98,8 +115,10 @@
         }
 
         footer {
-            background: black;
+            background: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
             padding: 10px;
+            position: relative;
+            z-index: 1; /* Asegura que el footer esté sobre el fondo */
         }
 
         /* Responsive */
@@ -121,6 +140,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            body::before {
+                background-size: cover; /* Ajusta el logo para cubrir toda la pantalla en móviles */
+            }
         }
 
         .hide {
@@ -128,7 +151,6 @@
         }
     </style>
     <script defer src="script2.js"></script>
-
 </head>
 
 <body>
@@ -147,49 +169,28 @@
         </nav>
     </header>
 
-    <main>
-        <section id="inicio" class="section">
-            <div class="hero">
-                <h1>¡Cambia tu vida con un solo boleto! ¡Participa ya!</h1>
-                <h3>¡Juega y gana con nosotros!</h3>
-                <p>Con cada juego, tienes hasta 5 oportunidades para ganar mercados,<br/>10 almuerzos o cenas de $80 USD, <br/> 15 recargas móviles x 8 USD.<br />
-                    ¡Aquí tus posibilidades de ganar son más altas que en cualquier otro lugar!<br />
-                    ¡No esperes más, juega ya!"</p>
-                <button class="btn">Participar</button>
+    <div class="section hero">
+        <h1>Bienvenidos a Los Audaces</h1>
+        <p>Explora nuestros juegos y productos.</p>
+        <button class="btn">Ver más</button>
+    </div>
+
+    <div class="section">
+        <h2>Nuestros Juegos</h2>
+        <div class="grid">
+            <div class="item">
+                <img src="juego1.jpg" alt="Juego 1">
+                <p>Juego 1</p>
             </div>
-        </section>
-
-        <section id="juegos" class="section hide">
-            <h2>Juegos Disponibles</h2>
-            <div class="grid">
-                <div class="item" id="prod1">
-                    <img src="mercado1.png" alt="Mercado x 200 USD">
-                    <p>Mercado x 200 USD</p>
-                </div>
-                <div class="item" id="prod2">
-                    <img src="cena1.png" alt="Cena x 80 USD">
-                    <p>Cena para 2 personas x 80 USD"</p>
-                </div>
-                <div class="item" id="prod3">
-                    <img src="recarga1.png" alt="Recargas a cualquier telefono x 600 BSS">
-                    <p>Recarga de Telefono x 600 BSS</p>
-                </div>
+            <div class="item">
+                <img src="juego2.jpg" alt="Juego 2">
+                <p>Juego 2</p>
             </div>
-        </section>
-
-        <section id="productos" class="section hide">
-            <h2>Nuestros Productos</h2>
-            <p>Explora nuestra variedad de productos exclusivos.</p>
-        </section>
-
-        <section id="contacto" class="section hide">
-            <h2>Contáctanos</h2>
-            <p>Para cualquier consulta, contáctanos a través de nuestro formulario.</p>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2025 Los Audaces - Todos los derechos reservados.</p>
+        <p>&copy; 2023 Los Audaces. Todos los derechos reservados.</p>
     </footer>
 </body>
 
